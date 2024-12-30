@@ -2,26 +2,25 @@
 # Data Science Project Report: Movie Dataset Analysis
 
 **#1. Problem Statement**
-
 Aim:
 The primary aim of this project is to develop a predictive model that classifies IMDb movie reviews as positive or negative and to extract insights into the sentiment and characteristics of movie reviews. This enables deeper understanding of audience feedback and helps answer data science questions related to sentiment trends, review quality, and content preferences.## 
 #Key Data Science Questions:
-
-What are the most common linguistic patterns and themes in positive and negative reviews?
-
-How do sentiments vary across different genres and ratings?
-
-Can sentiment analysis help identify fake or biased reviews?
-
-What topics dominate positive or negative reviews?
+1. How can sentiment analysis of IMDb reviews influence marketing strategies for upcoming films? - This question focuses on understanding how audience sentiment can shape promotional efforts and targeting strategies.
+2. What features of movie reviews are most strongly correlated with positive or negative sentiments? - Investigating which aspects of reviews (e.g., acting, direction, plot ) most impact audience sentiment can help filmmakers focus on strengths.
+3. How do sentiment trends change over time for a specific movie after its release? - This question examines how public perception evolves, which can inform marketing and distribution strategies.
+4. What is the sentiment distribution of reviews across different genres of movies? - Analyzing whether certain genres tend to receive more positive or negative feedback can guide future film production decisions. 5. How do sentiments expressed in IMDb reviews compare to box office performance? - This question seeks to establish a correlation between sentiment analysis results and actual financial outcomes, providing insights into predictive modeling.
 **#2. Dataset**
-
+The movie_metadata.csv dataset contains 28 columns and 5043 rows. 
 **Source:**
 IMDb Movie Reviews Dataset (Stanford Dataset).
-
+https://www.kaggle.com/datasets/carolzhangdc/imdb-5000-movie-dataset?resource=download
 **Feature Set:**
 The dataset contains 50,000 movie reviews with the following key features:
-
+'color', 'director_name', 'num_critic_for_reviews', 'duration', 'director_facebook_likes', 'actor_3_facebook_likes', 'actor_2_name',
+'actor_1_facebook_likes', 'gross', 'genres', 'actor_1_name', 'movie_title', 'num_voted_users', 'cast_total_facebook_likes',
+       'actor_3_name', 'facenumber_in_poster', 'plot_keywords','movie_imdb_link', 'num_user_for_reviews', 'language', 'country',
+       'content_rating', 'budget', 'title_year', 'actor_2_facebook_likes','imdb_score', 'aspect_ratio', 'movie_facebook_likes'],
+      dtype='object')
 **Text reviews:** The actual movie reviews written by users.
 
 Sentiment labels: Binary labels indicating whether a review is positive or negative.
