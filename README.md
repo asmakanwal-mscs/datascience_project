@@ -313,4 +313,35 @@ General Takeaways Random Forest models provide interpretable predictions but are
 ![image](https://github.com/user-attachments/assets/afcfbcc7-dc03-4d82-a9d7-b3174e09ed0c)
 ![image](https://github.com/user-attachments/assets/c0ff34a8-2201-449f-96cb-bff43a954b7d)
 Machine Learning Integration Steps: Regression for IMDb score prediction. Classification for content rating prediction. Evaluate models using RMSE, accuracy, and classification reports. Visualize results for better insight.
+***Key Insights*
+High Positive Correlations:**
+Based on **Heat map**
+![image](https://github.com/user-attachments/assets/0ad06696-9c6e-4312-8b5c-5fc019058561)
 
+num_voted_users and gross (Correlation: 0.64): This suggests that **movies with more user votes** tend to **have higher gross earnings**.
+imdb_score and num_critic_for_reviews (Correlation: 0.48) and imdb_score and num_user_for_reviews (Correlation: 0.45): Higher IMDb scores are associated with more reviews from both critics and users.
+**Moderate Positive Correlations:**
+movie_facebook_likes and num_voted_users (Correlation: 0.47): Movies with more Facebook likes tend to have more user votes.
+budget and gross (Correlation: 0.45): Higher budget movies tend to have higher gross earnings.
+**Insights Related to Data Science Questions:**
+**Influencing Marketing Strategies:**
+Understanding the positive correlation between movie Facebook likes and gross earnings can help in designing marketing strategies that focus on social media engagement.
+**Features Correlated with Sentiments:**
+The correlation between IMDb scores and the number of critic/user reviews suggests that these features might be significant in predicting the sentiment of reviews.
+**Sentiment Distribution Across Genres:**
+A deeper analysis of correlations within specific genres (not shown in this heatmap) would be needed to answer this question.
+**Comparison to Box Office Performance:**
+The positive correlation between num_voted_users and gross indicates that user engagement, reflected in the number of votes, might be a good predictor of box office performance**.
+**Histogram**
+![image](https://github.com/user-attachments/assets/2d087db0-f04e-42da-bff5-d7e4ab3d1ff0)
+**Key insights:**
+Distribution: The histogram shows that **most IMDb scores are centered around 6 to 7**. This indicates that a majority of the movies in your dataset receive **average ratings**.
+Frequency Peaks: There are **fewer movies with extremely high** (above 9) or **extremely low** (below 4) scores. This suggests that extreme ratings are **less common**.
+KDE Line:(Kernel Density Estimate, the KDE line smooths out the data to give a clearer picture of the overall distribution. The smooth KDE line overlaying the histogram gives a clearer picture of the distribution's shape, confirming that the scores follow a roughly normal distribution, with a peak around the average scores.)
+**Insights Related to Your Data Science Questions:** 
+**Influencing Marketing Strategies:**
+Knowing that most movies have average ratings, marketing strategies could focus on **emphasizing unique selling points that can boost a movie's rating** above the average threshold.
+**Features Correlated with Sentiments:**
+The central tendency around 6 to 7 suggests that **features leading to above-average ratings should be explored further to understand what contributes to higher sentiment.**
+**Comparison to Box Office Performance:**
+Comparing this distribution with box office performance data can help determine if higher-rated movies tend to perform better financially.
