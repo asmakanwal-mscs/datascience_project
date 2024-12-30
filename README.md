@@ -10,73 +10,72 @@ The primary aim of this project is to develop a predictive model that classifies
 3. How do sentiment trends change over time for a specific movie after its release? - This question examines how public perception evolves, which can inform marketing and distribution strategies.
 4. What is the sentiment distribution of reviews across different genres of movies? - Analyzing whether certain genres tend to receive more positive or negative feedback can guide future film production decisions. 5. How do sentiments expressed in IMDb reviews compare to box office performance? - This question seeks to establish a correlation between sentiment analysis results and actual financial outcomes, providing insights into predictive modeling.
 **#2. Dataset**  
-The movie_metadata.csv dataset contains 28 columns and 5043 rows.    
-**Source:**  
+The movie_metadata.csv dataset contains 28 columns and 5043 rows.      
+**Source:**    
 IMDb Movie Reviews Dataset (Stanford Dataset).  
 https://www.kaggle.com/datasets/carolzhangdc/imdb-5000-movie-dataset?resource=download
-**Feature Set:**  
+**Feature Set:**    
 The dataset contains 50,000 movie reviews with the following key features:
 'color', 'director_name', 'num_critic_for_reviews', 'duration', 'director_facebook_likes', 'actor_3_facebook_likes', 'actor_2_name',
 'actor_1_facebook_likes', 'gross', 'genres', 'actor_1_name', 'movie_title', 'num_voted_users', 'cast_total_facebook_likes',
        'actor_3_name', 'facenumber_in_poster', 'plot_keywords','movie_imdb_link', 'num_user_for_reviews', 'language', 'country',
        'content_rating', 'budget', 'title_year', 'actor_2_facebook_likes','imdb_score', 'aspect_ratio', 'movie_facebook_likes'],
       dtype='object')
-**Text reviews:** The actual movie reviews written by users.  
-**Sentiment labels:** Binary labels indicating whether a review is positive or negative.  
+**Text reviews:** The actual movie reviews written by users.    
+**Sentiment labels:** Binary labels indicating whether a review is positive or negative.    
 Metadata (optional): Includes features like movie title, genre, and IMDb rating for auxiliary analysis.
-The dataset includes:  
-- ***Features*:** Director, actors, financial metrics (budget, gross earnings), IMDb score, and other movie details such as _name	num_critic_for_reviews	duration	director_facebook_likes	actor_3_facebook_likes	actor_2_name	actor_1_facebook_likes, genres, num_user_for_reviews, language, country, content_rating, title_year, actor_2_facebook_likes,imdb_score	aspect_ratio, movie_facebook_likes
+The dataset includes:    
+- ***Features*:** Director, actors, financial metrics (budget, gross earnings), IMDb score, and other movie details such as _name	num_critic_for_reviews	duration	director_facebook_likes	actor_3_facebook_likes	actor_2_name	actor_1_facebook_likes, genres, num_user_for_reviews, language, country, content_rating, title_year, actor_2_facebook_likes,imdb_score	aspect_ratio, movie_facebook_likes  
   ![image](https://github.com/user-attachments/assets/29c49da5-62fa-41fd-8c3a-e013be3b9b46)
 Purpose: This dataset helps analyze the text of movie reviews to determine their sentiment, using other attributes for auxiliary insights.  
-**Methodology:**  
-**1. Data Preprocessing:**  
-The movie_metadata.csv dataset contains 28 columns and 5043 rows. Key features include:  
+#**Methodology:**     
+#**1. Data Preprocessing:**  
+The movie_metadata.csv dataset contains 28 columns and 5043 rows. Key features include:   
 these attributes has relationship among them and we'll explore the data by visualization with various libraries available in python to visualize data.  
 **Importing Libraries**  
 We need to import libraries that are required to process dataset, which will be using to clean data and which are using to visualize data
-![image](https://github.com/user-attachments/assets/0f756e08-ac4a-4586-9d76-d3ed6e9f887a)
-****Loading the data into the data frame**   
+![image](https://github.com/user-attachments/assets/0f756e08-ac4a-4586-9d76-d3ed6e9f887a)  
+****Loading the data into the data frame**     
 n this section, we load the IMDb movie reviews dataset into a Pandas DataFrame. We explore the dataset by examining its structure, such as the number of rows and columns, and check for any missing or duplicate values. This initial exploration helps us understand the data better and prepare for preprocessing.  
 **Display first few rows  **
 df.head()  
-![image](https://github.com/user-attachments/assets/b16b0001-b734-4efc-b57f-488d2c1ae24f)  
-**Display dataset dimensions**
+![image](https://github.com/user-attachments/assets/b16b0001-b734-4efc-b57f-488d2c1ae24f)    
+**Display dataset dimensions**  
 print(f"Dataset dimensions: {df.shape}")
 (5043, 28)
-**Display summary statistics**
-print("Dataset Summary:")
-print(df.describe())
-![image](https://github.com/user-attachments/assets/e06bf335-4e3d-4fdc-bd7f-0e87bee8d040)
-***Data Cleaning and Preprocessing**
-Here, we clean the dataset by addressing missing values and duplicates. We also perform text preprocessing steps such as:
-- Removing special characters, numbers, and stopwords.
-- Converting all text to lowercase.
-- Tokenizing the reviews into words.
-![image](https://github.com/user-attachments/assets/52eb324d-f990-4c37-9e1c-12bb9451686d)
-![image](https://github.com/user-attachments/assets/ae946c9b-1f40-4eb0-8cb9-803a4367a9fe)
-![image](https://github.com/user-attachments/assets/e309a598-9966-41c1-8b0f-3cf0e89a6331)
-![image](https://github.com/user-attachments/assets/c730b214-f4fe-473c-9c2a-7d1680397e4f)
-![image](https://github.com/user-attachments/assets/836cfcb5-1450-4120-8225-aefa62cdc100)
-****Exploratory Data Analysis (EDA)****
-In this section, we perform EDA to visualize and summarize the dataset. This includes:
+**Display summary statistics**  
+print("Dataset Summary:")  
+print(df.describe())  
+![image](https://github.com/user-attachments/assets/e06bf335-4e3d-4fdc-bd7f-0e87bee8d040)  
+***Data Cleaning and Preprocessing**  
+Here, we clean the dataset by addressing missing values and duplicates. We also perform text preprocessing steps such as:  
+- Removing special characters, numbers, and stopwords.  
+- Converting all text to lowercase.  
+- Tokenizing the reviews into words.  
+![image](https://github.com/user-attachments/assets/52eb324d-f990-4c37-9e1c-12bb9451686d)  
+![image](https://github.com/user-attachments/assets/ae946c9b-1f40-4eb0-8cb9-803a4367a9fe)  
+![image](https://github.com/user-attachments/assets/e309a598-9966-41c1-8b0f-3cf0e89a6331)  
+![image](https://github.com/user-attachments/assets/c730b214-f4fe-473c-9c2a-7d1680397e4f)  
+![image](https://github.com/user-attachments/assets/836cfcb5-1450-4120-8225-aefa62cdc100)  
+****Exploratory Data Analysis (EDA)****  
+In this section, we perform EDA to visualize and summarize the dataset. This includes:  
 - Analyzing the distribution of positive and negative reviews.
-- Using heat map, bar charts and histograms to understand key trends in the data.
+- Using heat map, bar charts and histograms to understand key trend  s in the data.  
 
-![image](https://github.com/user-attachments/assets/6d228a03-143b-4e53-b2e1-52935450aa82)
+![image](https://github.com/user-attachments/assets/6d228a03-143b-4e53-b2e1-52935450aa82)  
+  
+**df.columns**  
+![image](https://github.com/user-attachments/assets/44a8a3ba-6587-4397-a9e5-c37f31d3fc80)  
+![image](https://github.com/user-attachments/assets/57ad9d67-7493-4d8b-8e0a-89c220bafce6)   
+![image](https://github.com/user-attachments/assets/229cfeb8-140e-45f0-8c45-f9e45188ebb9)  
 
-df.columns
-![image](https://github.com/user-attachments/assets/44a8a3ba-6587-4397-a9e5-c37f31d3fc80)
-![image](https://github.com/user-attachments/assets/57ad9d67-7493-4d8b-8e0a-89c220bafce6)
-
-![image](https://github.com/user-attachments/assets/229cfeb8-140e-45f0-8c45-f9e45188ebb9)
-
-# **1. Line Chart**
-The line chart shows the average IMDb score over the years:
-X-axis (Year): Movie release year. Y-axis (IMDb Score): Average IMDb score. Line: Tracks the trend over time. It visualizes the change in average IMDb scores across the years.
-![image](https://github.com/user-attachments/assets/23efd9b3-e83a-4782-bddd-a2241795689d)
-# 2.Boxplot: Distribution of Movie Budgets
-The boxplot shows the distribution of movie budgets:
-Box: Represents the middle 50% of budgets. Median Line: Shows the median budget. Whiskers: Indicate the range, excluding outliers. Outliers: Show exceptionally high or low budgets. It visualizes the spread and central tendency of budgets.
+# **1. Line Chart**  
+The line chart shows the average IMDb score over the years:  
+X-axis (Year): Movie release year. Y-axis (IMDb Score): Average IMDb score. Line: Tracks the trend over time. It visualizes the change in average IMDb scores across the years.  
+![image](https://github.com/user-attachments/assets/23efd9b3-e83a-4782-bddd-a2241795689d)  
+#** 2.Boxplot: Distribution of Movie Budgets**  
+The boxplot shows the distribution of movie budgets:  
+Box: Represents the middle 50% of budgets. Median Line: Shows the median budget. Whiskers: Indicate the range, excluding outliers. Outliers: Show exceptionally high or low budgets. It visualizes the spread and central tendency of budgets.  
 box_data = df[['budget']].dropna()
 plt.figure(figsize=(8, 6))
 sns.boxplot(data=box_data, x='budget', color='skyblue')
@@ -134,7 +133,7 @@ plt.ylabel('Frequency', fontsize=12)
 plt.show()
 ![image](https://github.com/user-attachments/assets/0febaa29-35a8-433d-a446-0033cab3cbc2)
 The scatter plot shows the relationship between gross earnings and budget. Key Insights: X-axis (Budget): Displays the movie budget. Y-axis (Gross Earnings): Shows the gross earnings. Point Distribution: Each point represents a movie, and the spread indicates the correlation between budget and earnings. Alpha Transparency: Makes overlapping points visible, helping to understand data density, this scatter plot visually shows how budget correlates with earnings across movies.
-# 6.Scatter Plot: Gross Earnings vs Budget
+# 6.Scatter Plot: Gross Earnings vs Budget  
 scatter_data = df[['budget', 'gross']].dropna()
 
 plt.figure(figsize=(10, 6))
@@ -148,11 +147,11 @@ plt.show()
 The treemap shows the proportion of movies by genre:
 
 Larger Rectangles: Represent genres with more movies. Smaller Rectangles: Represent genres with fewer movies. Color Palette: Differentiates genres visually. Key Insight: Easily identify the most and least common genres in the dataset. If "Unknown" is a large block, it indicates missing or incomplete genre data.
-# 7.Treemap: Proportion of Movies by Genre
+# 7.Treemap: Proportion of Movies by Genre    
 !pip install squarify
 import squarify
 
-# Prepare data for treemap
+# Prepare data for treemap  
 genre_counts = df['genres'].str.split('|').explode().value_counts()
 
 plt.figure(figsize=(12, 6))
@@ -304,12 +303,14 @@ print('IQR(Q3 - Q1) = ', IQR)
 ![image](https://github.com/user-attachments/assets/45dcfcb9-ae90-4860-8f2e-0504f13dcef5)
 ![image](https://github.com/user-attachments/assets/053c3b3e-6ab7-4ff6-9845-46cb338b849d)
 ![image](https://github.com/user-attachments/assets/abc9de31-3016-45bb-9948-bcda7b3d2659)
-Insights from Applied ML Models
 
-1. Regression Model (IMDb Score Prediction) Key Features: Budget, gross earnings, user reviews, and duration. Performance: RMSE quantifies prediction error. Example: RMSE = 0.85 indicates average deviation of 0.85 IMDb points. Feature Importance: User reviews and gross earnings likely contribute the most to predictions. Limitations: Subjective factors like audience sentiment aren't captured, and missing/skewed data affects accuracy.
+# Insights from Applied ML Models  
 
-2. Classification Model (Content Rating Prediction) Key Features: Budget, gross earnings, user reviews. Performance: Example accuracy = 82%. Precision and recall reveal strengths/weaknesses for each rating. Feature Importance: Budget and user reviews help distinguish ratings. Limitations: Imbalanced data and subjective criteria (e.g., violence) impact predictions.
+**1. Regression Model (IMDb Score Prediction)**  
+ Key Features: Budget, gross earnings, user reviews, and duration. Performance: RMSE quantifies prediction error. Example: RMSE = 0.85 indicates average deviation of 0.85 IMDb points. Feature Importance: User reviews and gross earnings likely contribute the most to predictions. Limitations: Subjective factors like audience sentiment aren't captured, and missing/skewed data affects accuracy.  
 
+**2. Classification Model (Content Rating Prediction) **  
+ Key Features: Budget, gross earnings, user reviews. Performance: Example accuracy = 82%. Precision and recall reveal strengths/weaknesses for each rating. Feature Importance: Budget and user reviews help distinguish ratings. Limitations: Imbalanced data and subjective criteria (e.g., violence) impact predictions.
 General Takeaways Random Forest models provide interpretable predictions but are sensitive to data quality. Enhancements: Include richer features (e.g., genres, director), and optimize hyperparameters for better accuracy.
 
 
@@ -318,36 +319,36 @@ General Takeaways Random Forest models provide interpretable predictions but are
 ![image](https://github.com/user-attachments/assets/92aef67c-a5e1-4705-8515-ae3247f1808a)
 ![image](https://github.com/user-attachments/assets/afcfbcc7-dc03-4d82-a9d7-b3174e09ed0c)
 ![image](https://github.com/user-attachments/assets/c0ff34a8-2201-449f-96cb-bff43a954b7d)
-Machine Learning Integration Steps: Regression for IMDb score prediction. Classification for content rating prediction. Evaluate models using RMSE, accuracy, and classification reports. Visualize results for better insight.
+**Machine Learning Integration Steps:** Regression for IMDb score prediction. Classification for content rating prediction. Evaluate models using RMSE, accuracy, and classification reports. Visualize results for better insight.
 ***Key Insights*
-High Positive Correlations:**
+High Positive Correlations:**  
 Based on **Heat map**
 ![image](https://github.com/user-attachments/assets/0ad06696-9c6e-4312-8b5c-5fc019058561)
 
 num_voted_users and gross (Correlation: 0.64): This suggests that **movies with more user votes** tend to **have higher gross earnings**.
 imdb_score and num_critic_for_reviews (Correlation: 0.48) and imdb_score and num_user_for_reviews (Correlation: 0.45): Higher IMDb scores are associated with more reviews from both critics and users.
-**Moderate Positive Correlations:**
-movie_facebook_likes and num_voted_users (Correlation: 0.47): Movies with more Facebook likes tend to have more user votes.
-budget and gross (Correlation: 0.45): Higher budget movies tend to have higher gross earnings.
-**Insights Related to Data Science Questions:**
-**Influencing Marketing Strategies:**
-Understanding the positive correlation between movie Facebook likes and gross earnings can help in designing marketing strategies that focus on social media engagement.
-**Features Correlated with Sentiments:**
-The correlation between IMDb scores and the number of critic/user reviews suggests that these features might be significant in predicting the sentiment of reviews.
-**Sentiment Distribution Across Genres:**
-A deeper analysis of correlations within specific genres (not shown in this heatmap) would be needed to answer this question.
-**Comparison to Box Office Performance:**
-The positive correlation between num_voted_users and gross indicates that user engagement, reflected in the number of votes, might be a good predictor of box office performance**.
-**Histogram**
-![image](https://github.com/user-attachments/assets/2d087db0-f04e-42da-bff5-d7e4ab3d1ff0)
-**Key insights:**
-Distribution: The histogram shows that **most IMDb scores are centered around 6 to 7**. This indicates that a majority of the movies in your dataset receive **average ratings**.
-Frequency Peaks: There are **fewer movies with extremely high** (above 9) or **extremely low** (below 4) scores. This suggests that extreme ratings are **less common**.
-KDE Line:(Kernel Density Estimate, the KDE line smooths out the data to give a clearer picture of the overall distribution. The smooth KDE line overlaying the histogram gives a clearer picture of the distribution's shape, confirming that the scores follow a roughly normal distribution, with a peak around the average scores.)
-**Insights Related to Your Data Science Questions:** 
-**Influencing Marketing Strategies:**
-Knowing that most movies have average ratings, marketing strategies could focus on **emphasizing unique selling points that can boost a movie's rating** above the average threshold.
-**Features Correlated with Sentiments:**
-The central tendency around 6 to 7 suggests that **features leading to above-average ratings should be explored further to understand what contributes to higher sentiment.**
-**Comparison to Box Office Performance:**
-Comparing this distribution with box office performance data can help determine if higher-rated movies tend to perform better financially.
+**Moderate Positive Correlations:**  
+movie_facebook_likes and num_voted_users (Correlation: 0.47): Movies with more Facebook likes tend to have more user votes.  
+budget and gross (Correlation: 0.45): Higher budget movies tend to have higher gross earnings.  
+**Insights Related to Data Science Questions:**  
+**Influencing Marketing Strategies:**  
+Understanding the positive correlation between movie Facebook likes and gross earnings can help in designing marketing strategies that focus on social media engagement.  
+**Features Correlated with Sentiments:**  
+The correlation between IMDb scores and the number of critic/user reviews suggests that these features might be significant in predicting the sentiment of reviews.  
+**Sentiment Distribution Across Genres:**  
+A deeper analysis of correlations within specific genres (not shown in this heatmap) would be needed to answer this question.  
+**Comparison to Box Office Performance:**  
+The positive correlation between num_voted_users and gross indicates that user engagement, reflected in the number of votes, might be a good predictor of box office performance**.  
+**Histogram**  
+![image](https://github.com/user-attachments/assets/2d087db0-f04e-42da-bff5-d7e4ab3d1ff0)  
+**Key insights:**  
+Distribution: The histogram shows that **most IMDb scores are centered around 6 to 7**. This indicates that a majority of the movies in your dataset receive **average ratings**.  
+Frequency Peaks: There are **fewer movies with extremely high** (above 9) or **extremely low** (below 4) scores. This suggests that extreme ratings are **less common**.  
+KDE Line:(Kernel Density Estimate, the KDE line smooths out the data to give a clearer picture of the overall distribution. The smooth KDE line overlaying the histogram gives a clearer picture of the distribution's shape, confirming that the scores follow a roughly normal distribution, with a peak around the average scores.)  
+**Insights Related to Your Data Science Questions:**   
+**Influencing Marketing Strategies:**  
+Knowing that most movies have average ratings, marketing strategies could focus on **emphasizing unique selling points that can boost a movie's rating** above the average threshold.  
+**Features Correlated with Sentiments:**  
+The central tendency around 6 to 7 suggests that **features leading to above-average ratings should be explored further to understand what contributes to higher sentiment.**  
+**Comparison to Box Office Performance:**  
+Comparing this distribution with box office performance data can help determine if higher-rated movies tend to perform better financially.  
