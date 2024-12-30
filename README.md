@@ -85,8 +85,11 @@ plt.title('Distribution of Movie Budgets', fontsize=14)
 plt.xlabel('Budget', fontsize=12)
 plt.show()
 ![image](https://github.com/user-attachments/assets/4550b4e3-038d-4f88-a370-6a152dc46327)
-# 3.Bar Graph: Count of Movies Per Genre
-The bar graph shows the count of movies per genre. Key Insights: X-axis (Genre): Represents the movie genres. Y-axis (Count): Shows the number of movies in each genre. Bar Height: Taller bars indicate more movies in that genre. Rotation: Genre labels are rotated for better readability. the bar graph visualizes the distribution of movies across different genres.
+# 3.Bar Graph: Count of Movies Per Genre#
+The bar graph shows the count of movies per genre. 
+X-axis (Genre): Represents the movie genres. Y-axis (Count): Shows the number of movies in each genre. 
+Bar Height: Taller bars indicate more movies in that genre. 
+Rotation: Genre labels are rotated for better readability. the bar graph visualizes the distribution of movies across different genres.
 df['genres'] = df['genres'].fillna('Unknown')
 genre_counts = df['genres'].str.split('|').explode().value_counts()
 plt.figure(figsize=(12, 6))
@@ -98,9 +101,12 @@ plt.xticks(rotation=45)
 plt.show()
 ![image](https://github.com/user-attachments/assets/ae1e0556-8f09-41bd-9f67-b2709082a19f)
 
-# 4.Heatmap: Correlation Between Numeric Variables
+# 4.Heatmap: Correlation Between Numeric Variables#
 The heatmap shows correlations between numeric variables:
-Color Intensity: Indicates the strength of the correlation (red for positive, blue for negative). Values: Correlation coefficients range from -1 to 1. Annotations: Display the exact correlation values. It highlights relationships between variables in the dataset.
+Color Intensity: Indicates the strength of the correlation (red for positive, blue for negative). 
+Values: Correlation coefficients range from -1 to 1. 
+Annotations: Display the exact correlation values. 
+It highlights relationships between variables in the dataset.
 ![image](https://github.com/user-attachments/assets/36397b81-58d5-4721-9676-6e3736606b00)
 
 # Select only numeric columns
@@ -115,7 +121,11 @@ sns.heatmap(correlation_matrix, annot=True, fmt='.2f', cmap='coolwarm', cbar=Tru
 plt.title('Correlation Heatmap', fontsize=14)
 plt.show()
 ![image](https://github.com/user-attachments/assets/090c2c2e-e2c8-4388-9187-3376510b8070)
-Key Insights: X-axis (IMDb Score): Represents the IMDb score range. Y-axis (Frequency): Shows how many movies fall within each IMDb score range. KDE (Kernel Density Estimate): The smooth curve shows the overall distribution of scores. Bins: The number of bins (20) helps visualize the distribution in more detail. In summary, the histogram helps understand the spread and concentration of IMDb scores across movies, highlighting common score ranges and any skewness.
+X-axis (IMDb Score): Represents the IMDb score range. 
+Y-axis (Frequency): Shows how many movies fall within each IMDb score range. 
+KDE (Kernel Density Estimate): The smooth curve shows the overall distribution of scores. 
+Bins: The number of bins (20) helps visualize the distribution in more detail. 
+In summary, the histogram helps understand the spread and concentration of IMDb scores across movies, highlighting common score ranges and any skewness.
 # 5.Histogram: Distribution of IMDb Scores
 plt.figure(figsize=(8, 6))
 sns.histplot(df['imdb_score'], kde=True, bins=20, color='purple')
