@@ -23,22 +23,20 @@ The dataset contains 50,000 movie reviews with the following key features:
       dtype='object')
 **Text reviews:** The actual movie reviews written by users.
 
-Sentiment labels: Binary labels indicating whether a review is positive or negative.
-
+**Sentiment labels:** Binary labels indicating whether a review is positive or negative.
 Metadata (optional): Includes features like movie title, genre, and IMDb rating for auxiliary analysis.
 The dataset includes:
 - *Features*: Director, actors, financial metrics (budget, gross earnings), IMDb score, and other movie details such as _name	num_critic_for_reviews	duration	director_facebook_likes	actor_3_facebook_likes	actor_2_name	actor_1_facebook_likes, genres, num_user_for_reviews, language, country, content_rating, title_year, actor_2_facebook_likes,imdb_score	aspect_ratio, movie_facebook_likes
   ![image](https://github.com/user-attachments/assets/29c49da5-62fa-41fd-8c3a-e013be3b9b46)
 Purpose: This dataset helps analyze the text of movie reviews to determine their sentiment, using other attributes for auxiliary insights.
 **Methodology:**
-#**1. Data Preprocessing:**
+**1. Data Preprocessing:**
 The movie_metadata.csv dataset contains 28 columns and 5043 rows. Key features include:
 these attributes has relationship among them and we'll explore the data by visualization with various libraries available in python to visualize data.
-
 **Importing Libraries**
 We need to import libraries that are required to process dataset, which will be using to clean data and which are using to visualize data
 ![image](https://github.com/user-attachments/assets/0f756e08-ac4a-4586-9d76-d3ed6e9f887a)
-#****Loading the data into the data frame**  
+****Loading the data into the data frame**  
 n this section, we load the IMDb movie reviews dataset into a Pandas DataFrame. We explore the dataset by examining its structure, such as the number of rows and columns, and check for any missing or duplicate values. This initial exploration helps us understand the data better and prepare for preprocessing.
 # Display first few rows
 df.head()
@@ -50,8 +48,6 @@ print(f"Dataset dimensions: {df.shape}")
 print("Dataset Summary:")
 print(df.describe())
 ![image](https://github.com/user-attachments/assets/e06bf335-4e3d-4fdc-bd7f-0e87bee8d040)
-
-
 ***Data Cleaning and Preprocessing**
 Here, we clean the dataset by addressing missing values and duplicates. We also perform text preprocessing steps such as:
 - Removing special characters, numbers, and stopwords.
@@ -62,7 +58,7 @@ Here, we clean the dataset by addressing missing values and duplicates. We also 
 ![image](https://github.com/user-attachments/assets/e309a598-9966-41c1-8b0f-3cf0e89a6331)
 ![image](https://github.com/user-attachments/assets/c730b214-f4fe-473c-9c2a-7d1680397e4f)
 ![image](https://github.com/user-attachments/assets/836cfcb5-1450-4120-8225-aefa62cdc100)
-*** **Exploratory Data Analysis (EDA)*****
+****Exploratory Data Analysis (EDA)****
 In this section, we perform EDA to visualize and summarize the dataset. This includes:
 - Analyzing the distribution of positive and negative reviews.
 - Using heat map, bar charts and histograms to understand key trends in the data.
@@ -75,23 +71,24 @@ df.columns
 
 ![image](https://github.com/user-attachments/assets/229cfeb8-140e-45f0-8c45-f9e45188ebb9)
 
-**Line Chart**
+# **1. Line Chart**
+The line chart shows the average IMDb score over the years:
+X-axis (Year): Movie release year. Y-axis (IMDb Score): Average IMDb score. Line: Tracks the trend over time. It visualizes the change in average IMDb scores across the years.
 ![image](https://github.com/user-attachments/assets/23efd9b3-e83a-4782-bddd-a2241795689d)
 # 2.Boxplot: Distribution of Movie Budgets
+The boxplot shows the distribution of movie budgets:
+Box: Represents the middle 50% of budgets. Median Line: Shows the median budget. Whiskers: Indicate the range, excluding outliers. Outliers: Show exceptionally high or low budgets. It visualizes the spread and central tendency of budgets.
 box_data = df[['budget']].dropna()
-
 plt.figure(figsize=(8, 6))
 sns.boxplot(data=box_data, x='budget', color='skyblue')
 plt.title('Distribution of Movie Budgets', fontsize=14)
 plt.xlabel('Budget', fontsize=12)
 plt.show()
 ![image](https://github.com/user-attachments/assets/4550b4e3-038d-4f88-a370-6a152dc46327)
-
-The bar graph shows the count of movies per genre. Key Insights: X-axis (Genre): Represents the movie genres. Y-axis (Count): Shows the number of movies in each genre. Bar Height: Taller bars indicate more movies in that genre. Rotation: Genre labels are rotated for better readability. the bar graph visualizes the distribution of movies across different genres.
 # 3.Bar Graph: Count of Movies Per Genre
+The bar graph shows the count of movies per genre. Key Insights: X-axis (Genre): Represents the movie genres. Y-axis (Count): Shows the number of movies in each genre. Bar Height: Taller bars indicate more movies in that genre. Rotation: Genre labels are rotated for better readability. the bar graph visualizes the distribution of movies across different genres.
 df['genres'] = df['genres'].fillna('Unknown')
 genre_counts = df['genres'].str.split('|').explode().value_counts()
-
 plt.figure(figsize=(12, 6))
 sns.barplot(x=genre_counts.index, y=genre_counts.values, palette='viridis')
 plt.title('Count of Movies Per Genre', fontsize=14)
@@ -100,11 +97,12 @@ plt.ylabel('Count', fontsize=12)
 plt.xticks(rotation=45)
 plt.show()
 ![image](https://github.com/user-attachments/assets/ae1e0556-8f09-41bd-9f67-b2709082a19f)
-The heatmap shows correlations between numeric variables:
-
-Color Intensity: Indicates the strength of the correlation (red for positive, blue for negative). Values: Correlation coefficients range from -1 to 1. Annotations: Display the exact correlation values. It highlights relationships between variables in the dataset.
 
 # 4.Heatmap: Correlation Between Numeric Variables
+The heatmap shows correlations between numeric variables:
+Color Intensity: Indicates the strength of the correlation (red for positive, blue for negative). Values: Correlation coefficients range from -1 to 1. Annotations: Display the exact correlation values. It highlights relationships between variables in the dataset.
+![image](https://github.com/user-attachments/assets/36397b81-58d5-4721-9676-6e3736606b00)
+
 # Select only numeric columns
 numeric_df = df.select_dtypes(include=['float64', 'int64'])
 
