@@ -439,6 +439,31 @@ This chart doesn’t show time-based trends, but understanding the current genre
 Sentiment Distribution Across Genres:
 The treemap can be used to compare sentiment analysis results across different genres. Identifying which genres tend to receive more positive or negative feedback can guide future film production decisions.
 
+# Pairwise Relationship between Key Variables  
+![image](https://github.com/user-attachments/assets/f3552ae7-b722-49b7-9520-4754c7d121c1)   
+The pair plot visualizes the relationships between three key variables in your IMDb movie reviews dataset:** imdb_score, budget, and gross.** The plot includes scatter plots for each pair of variables and histograms to show the distribution of each individual variable.  
+**Key Insights:**  
+Distributions:  
+**IMDb Score:** The histogram shows that most IMDb scores are c**entered around 6 to 7,** which aligns with the previous histogram we discussed.  
+**Budget:** The histogram indicates that a **majority of movies have relatively low budgets**, with a **few high-budget outliers.** 
+**Gross:** Similar to the budget, the histogram shows that **most movies have lower gross earnings,** with a **few movies achieving significantly higher earnings**.
+  
+**Scatter Plots:**
+**Budget vs. Gross**: There is a **positive correlation** between budget and gross, suggesting that higher-budget movies tend to earn more.  
+IMDb Score vs. Budget: The scatter plot shows a weak positive correlation between IMDb score and budget, indicating that higher-budget movies might receive slightly higher ratings.  
+IMDb Score vs. Gross: There is a weak positive correlation between IMDb score and gross, suggesting that higher-rated movies tend to earn more, though the relationship is not very    strong.
+Insights Related to Your Data Science Questions:  
+Influencing Marketing Strategies:  
+Understanding the correlation between budget and gross earnings can help in designing marketing strategies that **focus on high-budget movies with potential for high returns**.
+**Features Correlated with Sentiments:  **
+The pair plot indicates that budget and gross earnings have some relationship with IMDb scores, which could be useful features for predicting the sentiment of reviews.
+Comparison to Box Office Performance:
+
+The positive correlations between IMDb scores, budget, and gross earnings support the idea that higher-rated and higher-budget movies tend to perform better financially, which can be useful for predictive modeling.
+
+This pair plot provides a comprehensive visualization of how these key variables interact, offering valuable insights for your analysis. If you have more visualizations to share, please go ahead!
 
 
 
+
+Message Copilot
