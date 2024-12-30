@@ -323,7 +323,7 @@ General Takeaways Random Forest models provide interpretable predictions but are
 
 # ***Key Insights*  
 *High Positive Correlations:*  
-Based on **Heat map**  
+# Based on **Heat map**  
 ![image](https://github.com/user-attachments/assets/0ad06696-9c6e-4312-8b5c-5fc019058561)  
 
 num_voted_users and gross (Correlation: 0.64): This suggests that **movies with more user votes** tend to **have higher gross earnings**.  
@@ -341,7 +341,7 @@ The correlation between IMDb scores and the number of critic/user reviews sugges
 A deeper analysis of correlations within specific genres (not shown in this heatmap) would be needed to answer this question.    
 **Comparison to Box Office Performance:**     
 The positive correlation between num_voted_users and gross indicates that user engagement, reflected in the number of votes, might be a good predictor of box office performance**.    
-**Histogram**    
+# **Histogram**    
 ![image](https://github.com/user-attachments/assets/2d087db0-f04e-42da-bff5-d7e4ab3d1ff0)    
 **Key insights:**    
 Distribution: The histogram shows that **most IMDb scores are centered around 6 to 7**. This indicates that a majority of the movies in your dataset receive **average ratings**.    
@@ -354,4 +354,25 @@ Knowing that most movies have average ratings, marketing strategies could focus 
 **Features Correlated with Sentiments:**    
 The central tendency around 6 to 7 suggests that **features leading to above-average ratings should be explored further to understand what contributes to higher sentiment.**    
 **Comparison to Box Office Performance:**  
-Comparing this distribution with box office performance data can help determine if higher-rated movies tend to perform better financially.    
+Comparing this distribution with box office performance data can help determine if higher-rated movies tend to perform better financially.  
+# **Scatter Plot**  
+![image](https://github.com/user-attachments/assets/ea6cd920-667c-45bc-ba2f-d268ae4c30bd)  
+The scatter plot visualizes the relationship between the budget and gross earnings of movies in your IMDb dataset. Each point represents a movie, with the x-axis showing the budget and the y-axis showing the gross earnings.  
+**Key Observations:**  
+**Clustering at Low Values:**  
+Most of the data points are clustered near the lower end of both axes, indicating that many movies have relatively low budgets and gross earnings.  
+**Outliers:  **
+There are a few outliers with significantly higher budgets and gross earnings. These points highlight blockbuster movies with substantial financial investment and returns.  
+**Positive Correlation:**  
+There appears to be a **positive correlation between budget and gross earnings,** suggesting that **higher-budget movies tend to have higher gross earnings.**  
+**Insights Related to Your Data Science Questions:**  
+**Influencing Marketing Strategies:**  
+Understanding the positive correlation between budget and gross earnings can **help marketing teams allocate resources more effectively, focusing on promoting high-budget movies** that are likely to yield higher returns.  
+**Features Correlated with Sentiments:**  
+While this plot specifically shows budget and gross earnings, it implies that financial investment in a movie can be correlated with its success, which may also impact audience sentiment positively.
+**Comparison to Box Office Performance:**
+The positive correlation between budget and gross earnings supports the idea that financial investment in movies is a strong predictor of box office performance, which can be further analyzed alongside sentiment data.
+
+
+
+
