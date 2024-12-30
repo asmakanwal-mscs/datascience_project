@@ -421,35 +421,24 @@ Musical
 
 Reality-TV
 
-Key Observations:
+**Key Observations:  
 Genre Distribution:
+** 
+The chart shows that some genres, like **Drama and Comedy**, have larger rectangles, indicating a **higher proportion **of movies. In contrast, genres like Western and** Film-Noir have smaller rectangles, showing they are less common.**
 
-The chart shows that some genres, like Drama and Comedy, have larger rectangles, indicating a higher proportion of movies. In contrast, genres like Western and Film-Noir have smaller rectangles, showing they are less common.
-
-Proportion Insight:
-
+**Proportion Insight:**
 The treemap provides a visual understanding of how diverse the movie industry is in terms of genres and helps identify which genres dominate.
-
-Insights Related to Your Data Science Questions:
+**Insights Related to Your Data Science Questions:  
 Influencing Marketing Strategies:
-
-Understanding the proportion of movies by genre can help in tailoring marketing strategies. For example, if Drama and Comedy are more common, marketing efforts can focus on differentiating these movies from others in the same genre.
-
+**  
+Understanding the proportion of movies by genre can help in tailoring marketing strategies. For example, if Drama and Comedy are more common, marketing efforts can focus on **differentiating these movies from others in the same genre.**  
 Features Correlated with Sentiments:
-
 Analyzing which genres have higher proportions can help identify features that contribute to positive or negative sentiments in those specific genres.
-
 Trends Over Time:
-
 This chart doesn’t show time-based trends, but understanding the current genre proportions can be a starting point for analyzing how these proportions change over time.
-
 Sentiment Distribution Across Genres:
-
 The treemap can be used to compare sentiment analysis results across different genres. Identifying which genres tend to receive more positive or negative feedback can guide future film production decisions.
 
-Comparison to Box Office Performance:
-
-Comparing the proportion of genres with their box office performance and sentiment analy
 
 
 
