@@ -1,50 +1,49 @@
 # Analysis of IMDb Movie Data: Exploring Success Factors
 # Data Science Project Report: Movie Dataset Analysis
 
-**#1. Problem Statement**
-Aim:
+**#1. Problem Statement**  
+**Aim:**  
 The primary aim of this project is to develop a predictive model that classifies IMDb movie reviews as positive or negative and to extract insights into the sentiment and characteristics of movie reviews. This enables deeper understanding of audience feedback and helps answer data science questions related to sentiment trends, review quality, and content preferences.## 
-#Key Data Science Questions:
+**#Key Data Science Questions:**  
 1. How can sentiment analysis of IMDb reviews influence marketing strategies for upcoming films? - This question focuses on understanding how audience sentiment can shape promotional efforts and targeting strategies.
 2. What features of movie reviews are most strongly correlated with positive or negative sentiments? - Investigating which aspects of reviews (e.g., acting, direction, plot ) most impact audience sentiment can help filmmakers focus on strengths.
 3. How do sentiment trends change over time for a specific movie after its release? - This question examines how public perception evolves, which can inform marketing and distribution strategies.
 4. What is the sentiment distribution of reviews across different genres of movies? - Analyzing whether certain genres tend to receive more positive or negative feedback can guide future film production decisions. 5. How do sentiments expressed in IMDb reviews compare to box office performance? - This question seeks to establish a correlation between sentiment analysis results and actual financial outcomes, providing insights into predictive modeling.
-**#2. Dataset**
-The movie_metadata.csv dataset contains 28 columns and 5043 rows. 
-**Source:**
-IMDb Movie Reviews Dataset (Stanford Dataset).
+**#2. Dataset**  
+The movie_metadata.csv dataset contains 28 columns and 5043 rows.    
+**Source:**  
+IMDb Movie Reviews Dataset (Stanford Dataset).  
 https://www.kaggle.com/datasets/carolzhangdc/imdb-5000-movie-dataset?resource=download
-**Feature Set:**
+**Feature Set:**  
 The dataset contains 50,000 movie reviews with the following key features:
 'color', 'director_name', 'num_critic_for_reviews', 'duration', 'director_facebook_likes', 'actor_3_facebook_likes', 'actor_2_name',
 'actor_1_facebook_likes', 'gross', 'genres', 'actor_1_name', 'movie_title', 'num_voted_users', 'cast_total_facebook_likes',
        'actor_3_name', 'facenumber_in_poster', 'plot_keywords','movie_imdb_link', 'num_user_for_reviews', 'language', 'country',
        'content_rating', 'budget', 'title_year', 'actor_2_facebook_likes','imdb_score', 'aspect_ratio', 'movie_facebook_likes'],
       dtype='object')
-**Text reviews:** The actual movie reviews written by users.
-
-**Sentiment labels:** Binary labels indicating whether a review is positive or negative.
+**Text reviews:** The actual movie reviews written by users.  
+**Sentiment labels:** Binary labels indicating whether a review is positive or negative.  
 Metadata (optional): Includes features like movie title, genre, and IMDb rating for auxiliary analysis.
-The dataset includes:
-- *Features*: Director, actors, financial metrics (budget, gross earnings), IMDb score, and other movie details such as _name	num_critic_for_reviews	duration	director_facebook_likes	actor_3_facebook_likes	actor_2_name	actor_1_facebook_likes, genres, num_user_for_reviews, language, country, content_rating, title_year, actor_2_facebook_likes,imdb_score	aspect_ratio, movie_facebook_likes
+The dataset includes:  
+- ***Features*:** Director, actors, financial metrics (budget, gross earnings), IMDb score, and other movie details such as _name	num_critic_for_reviews	duration	director_facebook_likes	actor_3_facebook_likes	actor_2_name	actor_1_facebook_likes, genres, num_user_for_reviews, language, country, content_rating, title_year, actor_2_facebook_likes,imdb_score	aspect_ratio, movie_facebook_likes
   ![image](https://github.com/user-attachments/assets/29c49da5-62fa-41fd-8c3a-e013be3b9b46)
-Purpose: This dataset helps analyze the text of movie reviews to determine their sentiment, using other attributes for auxiliary insights.
-**Methodology:**
-**1. Data Preprocessing:**
-The movie_metadata.csv dataset contains 28 columns and 5043 rows. Key features include:
-these attributes has relationship among them and we'll explore the data by visualization with various libraries available in python to visualize data.
-**Importing Libraries**
+Purpose: This dataset helps analyze the text of movie reviews to determine their sentiment, using other attributes for auxiliary insights.  
+**Methodology:**  
+**1. Data Preprocessing:**  
+The movie_metadata.csv dataset contains 28 columns and 5043 rows. Key features include:  
+these attributes has relationship among them and we'll explore the data by visualization with various libraries available in python to visualize data.  
+**Importing Libraries**  
 We need to import libraries that are required to process dataset, which will be using to clean data and which are using to visualize data
 ![image](https://github.com/user-attachments/assets/0f756e08-ac4a-4586-9d76-d3ed6e9f887a)
-****Loading the data into the data frame**  
-n this section, we load the IMDb movie reviews dataset into a Pandas DataFrame. We explore the dataset by examining its structure, such as the number of rows and columns, and check for any missing or duplicate values. This initial exploration helps us understand the data better and prepare for preprocessing.
-# Display first few rows
-df.head()
-![image](https://github.com/user-attachments/assets/b16b0001-b734-4efc-b57f-488d2c1ae24f)
-# Display dataset dimensions
+****Loading the data into the data frame**   
+n this section, we load the IMDb movie reviews dataset into a Pandas DataFrame. We explore the dataset by examining its structure, such as the number of rows and columns, and check for any missing or duplicate values. This initial exploration helps us understand the data better and prepare for preprocessing.  
+**Display first few rows  **
+df.head()  
+![image](https://github.com/user-attachments/assets/b16b0001-b734-4efc-b57f-488d2c1ae24f)  
+**Display dataset dimensions**
 print(f"Dataset dimensions: {df.shape}")
 (5043, 28)
-# Display summary statistics
+**Display summary statistics**
 print("Dataset Summary:")
 print(df.describe())
 ![image](https://github.com/user-attachments/assets/e06bf335-4e3d-4fdc-bd7f-0e87bee8d040)
